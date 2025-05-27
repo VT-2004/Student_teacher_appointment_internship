@@ -1,0 +1,841 @@
+/* Import Google Fonts - A modern, clean sans-serif font */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* General Body and Container Styling */
+body {
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #eef2f6; /* Light bluish-grey background */
+    color: #333;
+    line-height: 1.6;
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 20px; /* Padding around the main container */
+    box-sizing: border-box; /* Include padding in element's total width and height */
+}
+
+.container {
+    background-color: #ffffff;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1); /* Softer, larger shadow */
+    border-radius: 12px; /* Slightly more rounded corners */
+    padding: 40px; /* Increased padding */
+    width: 100%;
+    max-width: 1200px; /* Max width for the entire app container */
+    display: flex;
+    flex-direction: column;
+    min-height: calc(100vh - 40px); /* Adjust for body padding */
+    box-sizing: border-box;
+}
+
+/* Header Styling */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px; /* Increased margin */
+    padding-bottom: 25px;
+    border-bottom: 2px solid #e0e7ee; /* Lighter, more subtle border */
+    flex-wrap: wrap; /* Allow header elements to wrap on smaller screens */
+    gap: 15px; /* Space between header elements when wrapped */
+}
+
+header h1 {
+    color: #2c3e50;
+    margin: 0;
+    font-size: 2.5em; /* Larger heading */
+    font-weight: 700; /* Bolder */
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    gap: 20px; /* Space between auth info and logout button */
+    flex-wrap: wrap; /* Allow nav items to wrap */
+    justify-content: flex-end; /* Align to the right */
+}
+
+#auth-info {
+    text-align: right;
+    font-size: 0.95em;
+    color: #555;
+}
+
+#auth-info p {
+    margin: 0;
+}
+
+#auth-info #userName,
+#auth-info #userRole {
+    font-weight: 600; /* Semibold */
+    color: #007bff; /* Primary blue for highlight */
+}
+
+#logoutBtn {
+    background-color: #dc3545; /* Red for logout */
+    color: white;
+    border: none;
+    padding: 12px 25px; /* Larger padding */
+    border-radius: 6px; /* Slightly more rounded */
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: 500;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#logoutBtn:hover {
+    background-color: #c82333;
+    transform: translateY(-2px); /* Slight lift on hover */
+}
+
+/* Section Headings */
+h2, h3 {
+    color: #34495e;
+    margin-top: 30px; /* More top margin */
+    margin-bottom: 20px;
+    border-bottom: 1px dashed #cfd8dc;
+    padding-bottom: 10px;
+    font-weight: 600;
+}
+h2 { font-size: 2em; }
+h3 { font-size: 1.5em; }
+
+
+/* Authentication Section */
+.auth-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    padding: 20px 0; /* Add vertical padding */
+}
+
+.auth-forms {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.auth-form {
+    background-color: #fcfcfc; /* Slightly off-white background */
+    padding: 40px; /* Increased padding */
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08); /* More prominent shadow */
+    width: 100%;
+    max-width: 450px; /* Increased max width for forms */
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Increased space between form elements */
+    margin-bottom: 30px;
+    box-sizing: border-box;
+}
+
+.auth-form h2 {
+    text-align: center;
+    color: #34495e;
+    margin-bottom: 30px;
+    border-bottom: none;
+    padding-bottom: 0;
+    font-size: 1.8em;
+}
+
+.auth-form input[type="email"],
+.auth-form input[type="password"],
+.auth-form input[type="text"],
+.auth-form select {
+    width: 100%;
+    padding: 14px; /* Larger input fields */
+    border: 1px solid #d0d8e2; /* Softer border color */
+    border-radius: 6px;
+    font-size: 1em;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.auth-form input:focus,
+.auth-form select:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25); /* Focus highlight */
+    outline: none;
+}
+
+.auth-form button[type="submit"] {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 15px 25px; /* Larger button */
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.1em;
+    font-weight: 500;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.auth-form button[type="submit"]:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+.auth-form p {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 0.9em;
+    color: #666;
+}
+
+.auth-form a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.auth-form a:hover {
+    text-decoration: underline;
+}
+
+/* Main App Content Sections */
+.app-content {
+    flex-grow: 1;
+    padding: 10px 0; /* Add some vertical padding */
+}
+
+.card-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Slightly larger min-width for cards */
+    gap: 25px; /* Increased gap between cards */
+    margin-top: 25px;
+}
+
+.teacher-card,
+.appointment-card,
+.user-card {
+    background-color: #fefefe;
+    border: 1px solid #eef2f6; /* Lighter border */
+    border-radius: 10px;
+    padding: 25px; /* Increased padding */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.07); /* Softer shadow */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.teacher-card:hover,
+.appointment-card:hover,
+.user-card:hover {
+    transform: translateY(-5px); /* More pronounced lift on hover */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+}
+
+.teacher-card h3,
+.appointment-card h3,
+.user-card h3 {
+    margin-top: 0;
+    margin-bottom: 12px;
+    color: #2c3e50;
+    font-size: 1.3em;
+    font-weight: 600;
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.teacher-card p,
+.appointment-card p,
+.user-card p {
+    margin: 6px 0;
+    font-size: 0.95em;
+    color: #666;
+}
+
+/* Specific styling for appointment status */
+.appointment-card .status-pending { color: #ff9800; font-weight: 600; } /* Orange */
+.appointment-card .status-approved { color: #4CAF50; font-weight: 600; } /* Green */
+.appointment-card .status-rejected { color: #F44336; font-weight: 600; } /* Red */
+
+/* Specific styling for user approval status */
+.user-card .status-pending { color: #ff9800; font-weight: 600; }
+.user-card .status-approved { color: #4CAF50; font-weight: 600; }
+
+.appointment-actions,
+.admin-actions {
+    margin-top: 20px; /* Increased margin */
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px; /* Increased space between buttons */
+}
+
+/* General Button Styling */
+button {
+    padding: 10px 18px; /* Slightly larger buttons */
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.95em;
+    font-weight: 500;
+    transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.2s ease;
+    box-sizing: border-box;
+    white-space: nowrap; /* Prevent button text from wrapping */
+}
+
+button:hover {
+    transform: translateY(-1px); /* Gentle lift on hover */
+}
+
+.book-appointment-btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+}
+
+.book-appointment-btn:hover {
+    background-color: #0056b3;
+}
+
+.cancel-btn {
+    background-color: #ffc107; /* Warning yellow */
+    color: #333;
+    border: 1px solid #ffc107;
+}
+
+.cancel-btn:hover {
+    background-color: #e0a800;
+    border-color: #e0a800;
+}
+
+.reschedule-btn {
+    background-color: #17a2b8; /* Info blue */
+    color: white;
+    border: none;
+}
+.reschedule-btn:hover {
+    background-color: #138496;
+}
+
+
+.approve-btn {
+    background-color: #28a745;
+    color: white;
+    border: none;
+}
+
+.approve-btn:hover {
+    background-color: #218838;
+}
+
+.reject-btn {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+}
+
+.reject-btn:hover {
+    background-color: #c82333;
+}
+
+.edit-user-btn {
+    background-color: #6c757d; /* Grey */
+    color: white;
+    border: none;
+}
+
+.edit-user-btn:hover {
+    background-color: #5a6268;
+}
+
+.delete-user-btn {
+    background-color: #6f42c1; /* Purple */
+    color: white;
+    border: none;
+}
+
+.delete-user-btn:hover {
+    background-color: #563d7c;
+}
+
+/* Admin action button style */
+.action-button {
+    background-color: #20c997; /* Teal */
+    color: white;
+    border: none;
+    padding: 12px 22px; /* Slightly larger */
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: 500;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-bottom: 25px; /* Space below admin action buttons */
+}
+.action-button:hover {
+    background-color: #17a77e;
+    transform: translateY(-2px);
+}
+
+
+/* Filter & Sort Controls */
+.filter-sort-controls {
+    margin-bottom: 25px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* Increased gap */
+    align-items: center;
+    background-color: #f8fafc; /* Lighter background */
+    padding: 20px; /* Increased padding */
+    border-radius: 10px;
+    border: 1px solid #e0e7ee;
+}
+
+.filter-sort-controls label {
+    font-weight: 600;
+    color: #495057;
+    margin-right: 5px; /* Space between label and select */
+}
+
+.filter-sort-controls select {
+    padding: 10px 15px; /* Larger select fields */
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background-color: white;
+    font-size: 0.95em;
+    cursor: pointer;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.filter-sort-controls select:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+    outline: none;
+}
+
+
+/* Modals (General) */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.6); /* Darker overlay */
+    backdrop-filter: blur(4px); /* Subtle blur effect */
+    display: flex; /* Always use flex for centering */
+    justify-content: center;
+    align-items: center;
+    padding: 20px; /* Ensure padding on small screens */
+    box-sizing: border-box;
+}
+
+.modal-content {
+    background-color: #fefefe;
+    padding: 40px; /* Increased padding */
+    border: none; /* Removed default border */
+    width: 100%;
+    max-width: 550px; /* Increased max width for modal content */
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.25); /* Stronger, softer shadow */
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Increased space between elements in modal form */
+    box-sizing: border-box;
+    animation: fadeInScale 0.3s ease-out forwards; /* Entry animation */
+}
+
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.95) translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+
+.modal-content h2 {
+    margin-top: 0;
+    margin-bottom: 25px;
+    color: #34495e;
+    text-align: center;
+    border-bottom: 1px dashed #e0e7ee;
+    padding-bottom: 15px;
+    font-size: 1.8em;
+    font-weight: 600;
+}
+
+.modal-content p {
+    font-size: 1.1em;
+    text-align: center;
+    color: #555;
+}
+
+.modal-content label {
+    display: block;
+    margin-bottom: 8px; /* Increased margin */
+    font-weight: 600;
+    color: #555;
+}
+
+.modal-content input[type="date"],
+.modal-content input[type="time"],
+.modal-content input[type="text"],
+.modal-content input[type="email"],
+.modal-content input[type="password"],
+.modal-content select,
+.modal-content textarea {
+    width: 100%;
+    padding: 12px; /* Larger input fields */
+    margin-bottom: 18px; /* Increased margin */
+    border: 1px solid #d0d8e2;
+    border-radius: 6px;
+    font-size: 1em;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.modal-content input:focus,
+.modal-content select:focus,
+.modal-content textarea:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+    outline: none;
+}
+
+
+.modal-content input[type="checkbox"] {
+    margin-right: 12px;
+    transform: scale(1.3); /* Make checkbox slightly larger */
+    accent-color: #007bff; /* Custom color for checkbox */
+}
+
+
+.modal-content button[type="submit"] {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 15px 25px; /* Larger button */
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.1em;
+    font-weight: 500;
+    width: 100%;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-sizing: border-box;
+    margin-top: 10px; /* Push button down slightly */
+}
+
+.modal-content button[type="submit"]:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+
+.close-button {
+    color: #888;
+    position: absolute;
+    top: 18px;
+    right: 28px;
+    font-size: 36px; /* Larger close button */
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: #333;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Confirmation Modal Specifics */
+.confirm-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* More space between buttons */
+    margin-top: 25px;
+}
+
+.confirm-buttons button {
+    padding: 12px 30px; /* Larger confirmation buttons */
+    border-radius: 6px;
+    font-size: 1.05em;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+#confirm-yes-btn {
+    background-color: #28a745;
+    color: white;
+    border: none;
+}
+
+#confirm-yes-btn:hover {
+    background-color: #218838;
+}
+
+#confirm-no-btn {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+}
+
+#confirm-no-btn:hover {
+    background-color: #c82333;
+}
+
+/* Message Box */
+.message-box {
+    position: fixed;
+    bottom: 30px; /* Increased bottom margin */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #333;
+    color: white;
+    padding: 18px 30px; /* Larger padding */
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s ease-out, visibility 0.4s ease-out, transform 0.4s ease-out; /* Smoother animation */
+    z-index: 1001;
+    min-width: 300px; /* Increased min-width */
+    text-align: center;
+    font-weight: 500;
+}
+
+.message-box.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(-10px); /* Slight lift on show */
+}
+
+.message-box.success {
+    background-color: #28a745; /* Green */
+}
+
+.message-box.error {
+    background-color: #dc3545; /* Red */
+}
+
+.message-box.info {
+    background-color: #17a2b8; /* Blue */
+}
+
+/* Info Message (for "No teachers/appointments/users") */
+.info-message {
+    text-align: center;
+    color: #7a8288;
+    font-style: italic;
+    margin-top: 30px;
+    padding: 15px;
+    background-color: #f0f3f6;
+    border-radius: 8px;
+    border: 1px dashed #d0d8e2;
+    font-size: 1.1em;
+}
+
+/* Approval Status text for student dashboard */
+#approvalStatus {
+    font-weight: 600;
+    text-align: center;
+    margin-top: 15px;
+    padding: 10px;
+    border-radius: 8px;
+    background-color: #fff8e1; /* Light yellow background */
+    color: #8d6e63; /* Darker, softer text color */
+    border: 1px solid #ffeeba;
+    display: block;
+    font-size: 1.05em;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+/* Small text for original date/time in reschedule requests */
+.appointment-card .text-sm {
+    font-size: 0.85em;
+    color: #888;
+    margin-top: 3px;
+    margin-bottom: 3px;
+}
+
+/* Responsive Adjustments */
+
+/* Tablets and small laptops (768px to 1024px) */
+@media (max-width: 1024px) {
+    .container {
+        padding: 30px;
+        margin: 15px;
+    }
+    header h1 {
+        font-size: 2.2em;
+    }
+    .card-list {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 20px;
+    }
+    .auth-form {
+        max-width: 400px;
+        padding: 30px;
+    }
+    .modal-content {
+        max-width: 500px;
+        padding: 30px;
+    }
+}
+
+/* Phones and very small tablets (up to 767px) */
+@media (max-width: 767px) {
+    body {
+        padding: 10px;
+    }
+    .container {
+        padding: 20px;
+        margin: 0;
+        border-radius: 0; /* Full width on small screens */
+        min-height: 100vh;
+    }
+    header {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+        margin-bottom: 30px;
+    }
+    header h1 {
+        font-size: 1.8em;
+    }
+    nav {
+        flex-direction: column;
+        width: 100%;
+        gap: 10px;
+        align-items: center;
+    }
+    #auth-info {
+        text-align: center;
+        width: 100%;
+    }
+    #logoutBtn {
+        width: 100%;
+        max-width: 200px; /* Limit width */
+    }
+
+    h2 { font-size: 1.7em; }
+    h3 { font-size: 1.3em; }
+
+    .auth-section {
+        padding: 10px 0;
+    }
+    .auth-form {
+        padding: 25px;
+        margin-bottom: 25px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05); /* Lighter shadow on small screens */
+    }
+    .auth-form h2 {
+        font-size: 1.5em;
+        margin-bottom: 20px;
+    }
+
+    .card-list {
+        grid-template-columns: 1fr; /* Single column on phones */
+        gap: 20px;
+        margin-top: 20px;
+    }
+    .teacher-card,
+    .appointment-card,
+    .user-card {
+        padding: 20px;
+    }
+
+    .appointment-actions,
+    .admin-actions {
+        flex-direction: column; /* Stack buttons vertically */
+        gap: 10px;
+        margin-top: 15px;
+    }
+    .appointment-actions button,
+    .admin-actions button {
+        width: 100%; /* Make buttons full width */
+        padding: 10px;
+    }
+
+    .filter-sort-controls {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        padding: 15px;
+    }
+    .filter-sort-controls label {
+        margin-bottom: 5px;
+    }
+    .filter-sort-controls select {
+        width: 100%;
+    }
+
+    .modal-content {
+        padding: 25px;
+        width: 95%; /* Make modal almost full width */
+        gap: 15px;
+    }
+    .modal-content h2 {
+        font-size: 1.6em;
+        margin-bottom: 20px;
+        padding-bottom: 10px;
+    }
+    .modal-content input,
+    .modal-content select,
+    .modal-content textarea {
+        padding: 10px;
+        margin-bottom: 15px;
+    }
+    .modal-content button[type="submit"] {
+        padding: 12px;
+    }
+    .close-button {
+        font-size: 30px;
+        top: 10px;
+        right: 20px;
+    }
+
+    .confirm-buttons {
+        flex-direction: column; /* Stack confirm buttons */
+        gap: 10px;
+        margin-top: 20px;
+    }
+    .confirm-buttons button {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .message-box {
+        bottom: 15px;
+        min-width: unset; /* Remove min-width */
+        width: calc(100% - 30px); /* Full width with padding */
+        padding: 15px 20px;
+    }
+}
+
+/* Smaller phones (e.g., iPhone 5/SE) */
+@media (max-width: 374px) {
+    .container {
+        padding: 15px;
+    }
+    header h1 {
+        font-size: 1.6em;
+    }
+    .auth-form {
+        padding: 20px;
+        max-width: 95%;
+    }
+    .auth-form h2 {
+        font-size: 1.3em;
+    }
+    .modal-content {
+        padding: 20px;
+    }
+    .modal-content h2 {
+        font-size: 1.4em;
+    }
+}
