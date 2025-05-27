@@ -42,16 +42,17 @@ Send Message: Include a message with the appointment request to convey purpose o
 
 Cancel/Reschedule Appointment: Manage their booked appointments.
 
+
+
 💻 Technologies Used
 Frontend: HTML5, CSS3, JavaScript
+
 
 Backend/Database: Firebase (Authentication and Firestore)
 
 🌐 Domain
 Education
 
-📈 Project Difficulty Level
-Easy
 
 🧩 System Modules (Detailed)
 Admin Dashboard
@@ -100,6 +101,8 @@ Appointment Tracking:
 List of their booked appointments with status (Pending, Approved, Rejected, Cancelled, Reschedule Pending).
 
 Actions: Cancel, Reschedule.
+
+
 
 🛠️ How to Run the Project Locally
 To set up and run this project on your local machine, follow these steps:
@@ -173,6 +176,8 @@ http-server .
 
 Then, open your browser and go to http://localhost:8080 (or whatever port http-server indicates).
 
+
+
 🔒 Firebase Security Rules
 For a production environment, it's crucial to secure your Firestore database. Here are basic rules you can set in your Firebase console under Build > Firestore Database > Rules to control read/write access:
 
@@ -209,6 +214,8 @@ service cloud.firestore {
 
 Note: These rules are a starting point. For a robust production application, you would need more detailed rules, potentially using custom claims for roles and more granular access control.
 
+
+
 📜 Coding Standards & Modularity
 The project adheres to basic coding standards for readability and maintainability:
 
@@ -228,6 +235,8 @@ Maintainable: Clear function names, consistent formatting, and separation of con
 
 Portable: Standard web technologies (HTML, CSS, JS) and cloud-agnostic Firebase services ensure the application can run in any modern web environment.
 
+
+
 🗄️ Database (Firebase Firestore)
 Firestore is used as the NoSQL document database. Key collections:
 
@@ -235,8 +244,12 @@ users: Stores user profiles (name, email, role, subject (for teachers), isApprov
 
 appointments: Stores appointment details (student ID, student name, teacher ID, teacher name, date, time, message, status, createdAt, updatedAt, originalDate, originalTime for reschedule requests).
 
+
+
 📊 Logging
 Basic client-side logging is implemented using console.log() and console.error() for debugging and tracking user actions or errors. For a production environment, integrating a dedicated logging service (e.g., Firebase Crashlytics, Google Cloud Logging) would be recommended for comprehensive monitoring. showMessage() is used for user-facing notifications.
+
+
 
 🚀 Deployment
 The project is designed as a static web application. It can be hosted on various cloud platforms.
@@ -244,6 +257,8 @@ The project is designed as a static web application. It can be hosted on various
 Deployment Platform: GitHub Pages (as demonstrated in the previous steps).
 
 Justification: GitHub Pages is ideal for this type of project due to its ease of setup, free hosting for static sites, direct integration with GitHub repositories, and reliable global CDN. It's perfectly suited for client-side applications like this one, where the backend is handled by Firebase.
+
+
 
 💡 Solutions Design & System Architecture
 Low-Level Design (LLD) Considerations:
@@ -274,6 +289,8 @@ Firestore Database: Stores user profiles and appointment data.
 
 (For complex logic: Firebase Cloud Functions could be added for server-side operations, e.g., sending notifications, complex data cleanup, but not currently implemented).
 
+
+
 ⚙️ Optimization of Solutions
 Code Level:
 
@@ -292,6 +309,8 @@ Serverless Backend (Firebase): Eliminates the need for traditional server manage
 Real-time Database (Firestore Listeners): For teacher/student dashboards, real-time listeners could be implemented to instantly update appointment lists without manual refreshes, offering a more dynamic user experience (partially implemented for live updates on status changes).
 
 Client-Side Rendering: The entire application logic runs in the browser, minimizing server load.
+
+
 
 ✅ Test Cases
 Here are some example test cases covering different user roles and functionalities:
@@ -425,6 +444,8 @@ Delete User:
 Steps: Click "Delete" on a user (not self), confirm.
 
 Expected: User deleted from Firestore, info message, user disappears from lists.
+
+
 
 📦 Submission Requirements
 Project Code: Submitted to this GitHub repository.
