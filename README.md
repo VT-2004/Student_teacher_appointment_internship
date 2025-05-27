@@ -1,4 +1,6 @@
 Student-Teacher Appointment Booking System
+
+
 🚀 Project Overview
 The Student-Teacher Appointment Booking System is a web-based platform designed to streamline the appointment scheduling process between students and teachers. In today's fast-paced educational environment, traditional booking methods can be inefficient, leading to increased wait times and communication bottlenecks. This system aims to provide a convenient, accessible solution, allowing both students and teachers to manage appointments efficiently from anywhere, using web or mobile devices. Students can easily find available teachers, book appointments, and send messages detailing their appointment purpose. Teachers can view, approve, reject, or reschedule incoming requests, ensuring effective time management.
 
